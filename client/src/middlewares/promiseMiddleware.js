@@ -1,4 +1,5 @@
-import { get, isFunction } from 'lodash'
+import get from 'lodash/get'
+import isFunction from 'lodash/isFunction'
 import { showLoading, hideLoading } from 'react-redux-loading-bar'
 
 const promiseMiddleware = ({ dispatch }) => {

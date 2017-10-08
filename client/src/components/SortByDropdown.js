@@ -3,6 +3,7 @@ import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap
 import { connect } from 'react-redux'
 import { sort } from '../actions/postActions'
 import PropTypes from 'prop-types'
+import head from "lodash/head"
 
 class SortByDropdown extends Component {
 
@@ -25,12 +26,11 @@ class SortByDropdown extends Component {
   ]
 
   sortsToDropdownItem = (sorts) => (
-    sorts.map(x => <DropdownItem key={`${x.field}_${x.method}`}
-                                 onClick={this.sortBy(x)}>{x.description}</DropdownItem>)
+    sorts.map(x => <DropdownItem key={`${x.field}_${x.method}`} onClick={this.sortBy(x)}>{x.description}</DropdownItem>)
   )
 
   render() {
-    const activeSort = this.props.activeSort || this.allSorts[0]
+    const activeSort = this.props.activeSort || head(this.allSorts)
     const allSortsExceptActive = this.allSorts.filter(x => activeSort.field !== x.field || activeSort.method !== x.method)
     return (
       <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>

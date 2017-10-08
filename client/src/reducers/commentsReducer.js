@@ -1,5 +1,7 @@
 import * as types from '../actions/actionTypes'
-import { castArray, keyBy, omit } from 'lodash'
+import castArray from 'lodash/castArray'
+import keyBy from 'lodash/keyBy'
+import omit from 'lodash/omit'
 
 const commentsReducer = (state = {}, action) => {
   if (action.error) {

@@ -1,5 +1,15 @@
 import * as types from '../actions/actionTypes'
-import { castArray, get, head, keyBy, merge, omit, orderBy, union, without } from 'lodash'
+import castArray from 'lodash/castArray'
+import get from 'lodash/get'
+import head from 'lodash/head'
+import keyBy from 'lodash/keyBy'
+import merge from 'lodash/merge'
+import omit from 'lodash/omit'
+import orderBy from 'lodash/orderBy'
+import union from 'lodash/union'
+import without from 'lodash/without'
+
+
 
 const initialState = {
   byId: {},

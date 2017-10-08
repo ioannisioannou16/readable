@@ -1,5 +1,5 @@
 import * as types from '../actions/actionTypes'
-import { get } from 'lodash'
+import get from 'lodash/get'
 
 const errorReducer = (state = null, action) => {
   const { type, error, payload } = action
