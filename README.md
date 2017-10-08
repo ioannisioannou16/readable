@@ -19,6 +19,4 @@ Users are able to post content to predefined categories, comment on their posts 
 
 ## Note
 
-This is part of the Udacity's React Course. 
-
 Only client is implemented by me. Backend server was provided by Udacity and can be found here: https://github.com/udacity/reactnd-project-readable-starter
