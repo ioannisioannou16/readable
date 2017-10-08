@@ -1,10 +1,10 @@
-**Readable**
+# Readable
 
 A content and comment web app.
  
 Users are able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users are also able to edit and delete posts and comments.
 
-**Installation**
+## Installation
 
 1. Clone or download repository
 2. Install backend server dependencies and start backend server
@@ -17,7 +17,7 @@ Users are able to post content to predefined categories, comment on their posts 
     3. `npm start`
 4. Open browser at `localhost:3000`
 
-** Note **
+## Note
 
 This is part of the Udacity's React Course. 
 
