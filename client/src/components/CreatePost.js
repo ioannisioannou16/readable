@@ -15,7 +15,7 @@ class CreatePost extends Component {
   }
 
   onSubmit = (post) => {
-    this.props.createPost(post).then(() => this.props.history.push('/'))
+    this.props.createPost(post).then(() => this.props.history.push({ pathname: '/', state: { from: this.props.location }}))
   }
 
   render() {
