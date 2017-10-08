@@ -15,10 +15,10 @@ Users are able to post content to predefined categories, comment on their posts 
     1. `cd client`
     2. `npm install`
     3. `npm start`
-4. Open browser at `localhost:3000`
+4. Open browser at http://localhost:3000
 
 ## Note
 
 This is part of the Udacity's React Course. 
 
-Only client is implemented by me. Backend server was provided by Udacity and can be found here: `https://github.com/udacity/reactnd-project-readable-starter`
+Only client is implemented by me. Backend server was provided by Udacity and can be found here: https://github.com/udacity/reactnd-project-readable-starter
