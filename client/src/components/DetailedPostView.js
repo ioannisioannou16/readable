@@ -11,6 +11,7 @@ import OptionsDropdown from './OptionsDropdown'
 import { openModal } from '../actions/modalActions'
 import Loading from './Loading'
 import toLocalTime from '../utils/dateFormatter'
+import PropTypes from 'prop-types'
 
 class DetailedPostView extends Component {
 
@@ -43,12 +44,13 @@ class DetailedPostView extends Component {
   }
 
   render() {
-    if (this.state.isLoading && !this.props.id) {
+    const { id } = this.props
+    if (this.state.isLoading && !id) {
       return <Loading/>
-    } else if (!this.props.id) {
+    } else if (!id) {
       return <div className="centered">Post does not exist</div>
     } else {
-      const {id, title, author, timestamp, body, voteScore, comments} = this.props
+      const {title, author, timestamp, body, voteScore, comments} = this.props
       const localTime = toLocalTime(timestamp)
       return (
         <div>
@@ -69,6 +71,23 @@ class DetailedPostView extends Component {
       )
     }
   }
+}
+
+DetailedPostView.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.string,
+  author: PropTypes.string,
+  body: PropTypes.string,
+  timestamp: PropTypes.number,
+  voteScore: PropTypes.number,
+  comments: PropTypes.arrayOf(PropTypes.string),
+  match: PropTypes.object,
+  fetchPost: PropTypes.func,
+  fetchComments: PropTypes.func,
+  votePost: PropTypes.func,
+  openPostModal: PropTypes.func,
+  deletePost: PropTypes.func,
+  history: PropTypes.object
 }
 
 const openPostModal = (values) => openModal('post_modal', values)

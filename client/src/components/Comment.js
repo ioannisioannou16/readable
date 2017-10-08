@@ -6,6 +6,7 @@ import { deleteComment, voteComment } from '../actions/commentActions'
 import { openModal } from '../actions/modalActions'
 import Vote from './Vote'
 import toLocalTime from '../utils/dateFormatter'
+import PropTypes from 'prop-types'
 
 class Comment extends Component {
 
@@ -13,14 +14,22 @@ class Comment extends Component {
     this.props.voteComment(this.props.id, option)
   }
 
+  onEdit = (options) => () => {
+    this.props.openCommentModal(options)
+  }
+
+  onDelete = (id) => () => {
+    this.props.deleteComment(id)
+  }
+
   render() {
-    const { id, author, body, timestamp, voteScore, openCommentModal, deleteComment } = this.props
+    const { id, author, body, timestamp, voteScore } = this.props
     const localTime = toLocalTime(timestamp)
     return (
       <Card className="mb-4 comment">
         <CardHeader>
           <div className="pull-right">
-            <OptionsDropdown onEdit={() => openCommentModal({ id, body })} onDelete={() => deleteComment(id)}/>
+            <OptionsDropdown onEdit={this.onEdit({ id, body })} onDelete={this.onDelete(id)}/>
           </div>
           <div>
             <div><i className="fa fa-user mr-2"/>{author}</div>
@@ -36,6 +45,18 @@ class Comment extends Component {
       </Card>
     )
   }
+}
+
+Comment.propTypes = {
+  commentId: PropTypes.string,
+  id: PropTypes.string,
+  author: PropTypes.string,
+  body: PropTypes.string,
+  timestamp: PropTypes.number,
+  voteScore: PropTypes.number,
+  openCommentModal: PropTypes.func,
+  deleteComment: PropTypes.func,
+  voteComment: PropTypes.func
 }
 
 const openCommentModal = (values) => openModal('comment_modal', values)

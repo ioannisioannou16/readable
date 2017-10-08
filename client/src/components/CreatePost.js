@@ -6,6 +6,7 @@ import { createPost } from '../actions/postActions'
 import { fetchCategories } from '../actions/categoryActions'
 import { Link } from 'react-router-dom'
 import renderField from '../utils/renderField'
+import PropTypes from 'prop-types'
 
 class CreatePost extends Component {
 
@@ -36,6 +37,15 @@ class CreatePost extends Component {
       </div>
     )
   }
+}
+
+CreatePost.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.string),
+  fetchCategories: PropTypes.func,
+  createPost: PropTypes.func,
+  history: PropTypes.object,
+  handleSubmit: PropTypes.func,
+  submitting: PropTypes.bool
 }
 
 const fields = ['author', 'title', 'category', 'body']

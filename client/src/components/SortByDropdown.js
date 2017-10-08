@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap'
 import { connect } from 'react-redux'
 import { sort } from '../actions/postActions'
+import PropTypes from 'prop-types'
 
 class SortByDropdown extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {dropdownOpen: false}
+    this.state = { dropdownOpen: false }
   }
 
-  toggle = () => this.setState({dropdownOpen: !this.state.dropdownOpen})
+  toggle = () => this.setState({ dropdownOpen: !this.state.dropdownOpen })
 
   sortBy = (selectedSort) => () => {
     this.props.sort(selectedSort)
@@ -42,6 +43,11 @@ class SortByDropdown extends Component {
       </Dropdown>
     )
   }
+}
+
+SortByDropdown.propTypes = {
+  sort: PropTypes.func,
+  activeSort: PropTypes.object
 }
 
 const mapStateToProps = (state) => {

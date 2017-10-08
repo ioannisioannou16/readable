@@ -6,6 +6,7 @@ import { fetchPosts, sort } from '../actions/postActions'
 import { get } from 'lodash'
 import { withRouter } from 'react-router-dom'
 import Loading from './Loading'
+import PropTypes from 'prop-types'
 
 class PostList extends Component {
 
@@ -56,6 +57,15 @@ class PostList extends Component {
       )
     }
   }
+}
+
+PostList.propTypes = {
+  selectedCategory: PropTypes.string,
+  fetchPosts: PropTypes.func,
+  sort: PropTypes.func,
+  fetchComments: PropTypes.func,
+  location: PropTypes.object,
+  postIds: PropTypes.arrayOf(PropTypes.string)
 }
 
 const mapStateToProps = (state, ownProps) => {

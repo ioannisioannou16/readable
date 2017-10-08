@@ -6,6 +6,7 @@ import { get } from 'lodash'
 import { editPost } from '../actions/postActions'
 import { closeModal } from '../actions/modalActions'
 import renderField from '../utils/renderField'
+import PropTypes from 'prop-types'
 
 class EditPostModal extends Component {
 
@@ -39,6 +40,15 @@ class EditPostModal extends Component {
       </Modal>
     )
   }
+}
+
+EditPostModal.propTypes = {
+  id: PropTypes.string,
+  editPost: PropTypes.func,
+  closePostModal: PropTypes.func,
+  isOpen: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  submitting: PropTypes.bool
 }
 
 const changeFormValue = (field, value) => change('edit_post', field, value)

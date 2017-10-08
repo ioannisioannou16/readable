@@ -4,6 +4,7 @@ import { Field, reduxForm } from 'redux-form'
 import { Button, Card, CardBody, CardHeader, Form } from 'reactstrap'
 import { createComment } from '../actions/commentActions'
 import renderField from '../utils/renderField'
+import PropTypes from 'prop-types'
 
 class CreateComment extends Component {
 
@@ -27,6 +28,14 @@ class CreateComment extends Component {
       </Card>
     )
   }
+}
+
+CreateComment.propTypes = {
+  postId: PropTypes.string,
+  createComment: PropTypes.func,
+  reset: PropTypes.func,
+  handleSubmit: PropTypes.func,
+  submitting: PropTypes.bool
 }
 
 const fields = ['author', 'body']

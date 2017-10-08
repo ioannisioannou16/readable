@@ -6,6 +6,7 @@ import { get } from 'lodash'
 import { editComment } from '../actions/commentActions'
 import { closeModal } from '../actions/modalActions'
 import renderField from '../utils/renderField'
+import PropTypes from 'prop-types'
 
 class EditCommentModal extends Component {
 
@@ -37,6 +38,15 @@ class EditCommentModal extends Component {
       </Modal>
     )
   }
+}
+
+EditCommentModal.propTypes = {
+  id: PropTypes.string,
+  editComment: PropTypes.func,
+  closeCommentModal: PropTypes.func,
+  isOpen: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  submitting: PropTypes.bool
 }
 
 const changeFormValue = (field, value) => change('edit_comment', field, value)
