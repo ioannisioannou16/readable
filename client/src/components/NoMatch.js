@@ -7,7 +7,6 @@ const goBack = (history) => () => history.goBack()
 
 const NoMatch = ({ location, history }) => (
   <div className="centered">
-    <h1 className="text-center">Oops...<i className="fa fa-frown-o ml-1" aria-hidden="true"/></h1>
     <h1 className="text-center mb-5">Page not found</h1>
     <Button color="link" onClick={goBack(history)}>Go back</Button>
     <Button color="link" className="pull-right" onClick={goHome(history)}>Go home</Button>
