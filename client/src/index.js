@@ -5,12 +5,10 @@ import App from './components/App'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'font-awesome/css/font-awesome.css'
-import { applyMiddleware, createStore } from 'redux'
-import reducer from './reducers'
 import { Provider } from 'react-redux'
-import promiseMiddleware from './middlewares/promiseMiddleware'
+import configureStore from './store/configureStore'
 
-const store = createStore(reducer, applyMiddleware(promiseMiddleware))
+const store = configureStore()
 
 ReactDOM.render(
   <Provider store={store}>
