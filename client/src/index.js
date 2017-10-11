@@ -8,7 +8,7 @@ import 'font-awesome/css/font-awesome.css'
 import { applyMiddleware, createStore } from 'redux'
 import reducer from './reducers'
 import { Provider } from 'react-redux'
-import promiseMiddleware from './middlewares/promiseMiddleware'
+import promiseMiddleware from './middleware/promiseMiddleware'
 
 const store = createStore(reducer, applyMiddleware(promiseMiddleware))
 
